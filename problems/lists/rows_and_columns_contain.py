@@ -1,3 +1,25 @@
+def is_target(grid, target):
+    for row in grid:
+        count = 0
+        for n in row:
+            if n == target:
+                count += 1
+        if count == 0:
+            return False
+    return True
+
+def create_columns(grid):
+    columns = []
+    column_index = 0
+    for i in range(len(grid[0])):
+        new_column = []
+        for row in grid:
+            new_column.append(row[column_index])
+        column_index += 1
+        columns.append(new_column)
+    return columns
+
+
 def rows_and_columns_contain(lst, target):
     """
     Determines whether every row and every column of a list
@@ -8,8 +30,8 @@ def rows_and_columns_contain(lst, target):
       target, False otherwise
     """
 
-    ### Replace pass with your code
-    pass
+    total_list = [lst + create_columns[list]]
+    return is_target(total_list)
 
 
 #############################################################
